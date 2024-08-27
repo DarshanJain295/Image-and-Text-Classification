@@ -72,10 +72,8 @@ def fit_contrastive_model(
     Returns:
     - losses: List[float], list of losses at each iteration
     '''
-    # TODO: define the optimizer for the encoder only
     optimizer = torch.optim.Adam(encoder.parameters(), lr=learning_rate)
 
-    # TODO: define the loss function
     criterion = torch.nn.TripletMarginLoss()
 
     losses = []
@@ -148,7 +146,6 @@ def evaluate_model(
         classifier.eval()
         with torch.no_grad():
             y_preds = classifier(encoder(X))
-    # HINT: use calculate_loss and calculate_accuracy functions for NN classifier and calculate_linear_loss and calculate_linear_accuracy functions for linear (softmax) classifier
 
     return calculate_loss(y_preds, y), calculate_accuracy(y_preds, y)
 
@@ -192,7 +189,6 @@ def fit_model(
             val_accs.append(val_acc)
 
     else:
-        # TODO: define the optimizer
         # print(classifier)
         optimizer = torch.optim.Adam(classifier.parameters(), lr=args.lr)
         num_batches = (X_train.shape[0] + args.batch_size - 1) // args.batch_size

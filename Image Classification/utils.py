@@ -53,7 +53,6 @@ def get_data(
     # print(X.shape)
     # print(y.shape)
 
-    # HINT: rescale the images for better (and more stable) learning and performance
     
     return X, y
 
@@ -84,7 +83,6 @@ def flip_images(X: np.ndarray) -> np.ndarray:
     - X_flipped: np.ndarray, flipped images
     - y_flipped: np.ndarray, labels
     '''
-    # raise NotImplementedError('Flip the images here')
     flipped_batch_images = np.array([cv2.flip(img, 0) for img in X])
     return flipped_batch_images
 
@@ -146,11 +144,9 @@ def get_data_batch(
     - X_batch: np.ndarray, batch of images
     - y_batch: np.ndarray, batch of labels
     '''
-    # idxs = # TODO: get random indices of the batch size without replacement from the dataset
     idxs = np.random.choice(X.shape[0], size=batch_size, replace=False)
     return X[idxs], y[idxs]
 
-# TODO: Read up on generator functions online
 def get_contrastive_data_batch1(
         X: np.ndarray, y: np.ndarray, batch_size: int
 ):  # Yields: Tuple[np.ndarray, np.ndarray, np.ndarray]
@@ -202,7 +198,6 @@ def get_contrastive_data_batch1(
         yield np.array(X_a), np.array(X_p), np.array(X_n)
 
 
-# TODO: Read up on generator functions online
 def get_contrastive_data_batch(
         X: np.ndarray, y: np.ndarray, batch_size: int
 ):  # Yields: Tuple[np.ndarray, np.ndarray, np.ndarray]

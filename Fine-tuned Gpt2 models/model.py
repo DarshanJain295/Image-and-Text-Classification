@@ -305,7 +305,6 @@ class GPT(nn.Module):
 ################################################################################
 
 class LoRALinear(nn.Module):
-    # TODO: Implement LoRA model. Add two matrics for LoRA decomposition
     pass
 
 
@@ -314,5 +313,4 @@ class LoRALinear(nn.Module):
 ################################################################################
 
 class DistilRNN(nn.Module):
-    # TODO: Implement DistilRNN model
     pass

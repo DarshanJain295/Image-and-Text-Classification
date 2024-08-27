@@ -23,7 +23,6 @@ def main(args: Namespace):
     X, y = get_data(args.train_data_path)
     X_train, y_train, X_val, y_val = train_test_split(X, y)
     # print(f'Training data shape: {X_train.shape}, Validation data shape: {X_val.shape}')
-    # TODO: Convert the images and labels to torch tensors using pytorch utils (ptu)
     classes = len(np.unique(y_train))
     
     # Create the model

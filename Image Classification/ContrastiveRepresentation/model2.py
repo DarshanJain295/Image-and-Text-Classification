@@ -66,8 +66,6 @@ class Encoder(nn.Module):
         return out
     
 class Classifier(nn.Module):
-    # TODO: fill in this class with the required architecture and
-    # TODO: associated forward method
     def __init__(self, encoded_dim, classes = 10):
         super(Classifier, self).__init__()
         self.fc = nn.Linear(encoded_dim, 10)

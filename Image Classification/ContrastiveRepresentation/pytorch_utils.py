@@ -18,5 +18,4 @@ def from_numpy(
 
 def to_numpy(x: torch.Tensor) -> np.ndarray:
     return x.detach().cpu().numpy()
-    # raise NotImplementedError('Convert torch tensor to numpy array here')
-    # HINT: if using GPU, move the tensor to CPU before converting to numpy
+    

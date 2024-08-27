@@ -29,10 +29,7 @@ def main(args):
 
     elif args.mode == "LoRA":    
         model = GPT(args.gpt_variant, LoRA_rank=args.LoRA_rank).to(args.device)
-        
-        # TODO: Implement the training loop (fill the train and evaluate functions in train_utils.py)
-        # TODO: Also plot the training losses and metrics
-
+       
         model.save_trainable_params(args.model_path)
         
     elif args.mode == "distil":
@@ -41,12 +38,11 @@ def main(args):
         teacher_model.eval()
 
         student_model = DistilRNN().to(args.device)  # TODO: Implement the student model class
-        # TODO: Implement the training loop (fill the train and evaluate functions in train_utils.py)
-        # HINT: You can use an additional parameter in train function to differentiate LoRA and distillation training, no changes in evaluate function required.
+       
         raise NotImplementedError
     elif args.mode == "rnn":
         model = DistilRNN().to(args.device)
-        # TODO: Implement the training loop (fill the train and evaluate functions in train_utils.py)
+       
         raise NotImplementedError
     else:
         print("Invalid mode")
@@ -65,7 +61,6 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=128, help="Batch size")
     parser.add_argument("--epochs", type=int, default=3, help="Number of epochs")
     parser.add_argument("--LoRA_rank", type=int, default=4, help="Low rank matrix bottleneck")
-    # TODO: Add more arguments as needed
     
     args = parser.parse_args()
     args.device = torch.device(
